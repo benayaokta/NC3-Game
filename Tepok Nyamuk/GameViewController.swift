@@ -48,7 +48,3 @@ class GameViewController: UIViewController {
         return true
     }
 }
-
-// test git
-//test
-//test lagi
