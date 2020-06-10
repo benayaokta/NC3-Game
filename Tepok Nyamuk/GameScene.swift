@@ -9,13 +9,25 @@
 import SpriteKit
 import GameplayKit
 
+
+struct PhysicsCategory {
+    //cek di kalkulator berapa nilainya
+    static let nyamuk: UInt32 = 0b1
+    static let tool: UInt32 = 0b101
+}
+
 class GameScene: SKScene {
     
     var tool: SKSpriteNode!
     var nyamukDirection: CGFloat = 0
     
     override func didMove(to view: SKView) {
+        
+        //MARK -> PENTING
+        physicsWorld.contactDelegate = self
+        
         tool = (childNode(withName: "tool") as! SKSpriteNode)
+        tool.physicsBody?.categoryBitMask = PhysicsCategory.tool
         
         //spawn nyamuk
         let generateNyamuk = SKAction.run {
@@ -31,24 +43,30 @@ class GameScene: SKScene {
     }
     
     func spawnNyamuk(){
-        //1. buat sprite node isinya texture nyamuk
+        //buat sprite node isinya texture nyamuk
         let nyamuk = SKSpriteNode(imageNamed: "mosquito-1")
         nyamuk.size = CGSize(width: 100, height: 100)
-        self.addChild(nyamuk)
-        
-        //2. atur posisi
-        let xPosition = CGFloat.random(in: 10...818)
+    
+        //atur posisi
+        let xPosition = CGFloat.random(in: 400...414) //nanti diubah
         let yPosition = CGFloat.random(in: 650...1600)
         nyamuk.zPosition = 5
         nyamuk.position = CGPoint(x: xPosition, y: yPosition)
         
-        //3. animasi gerak2
-        let moveNyamuk = SKAction.moveBy(x: 100, y: 300, duration: 0.7)
+        //animasi gerak2
+        let moveNyamuk = SKAction.moveBy(x: 0, y: -700, duration: 0.7)
         let completeAction = SKAction.sequence([moveNyamuk, SKAction.removeFromParent()])
         
-        //4. set suara
+        //physics body
+        let physicsBodyNyamuk = SKPhysicsBody(circleOfRadius: 50)
+        physicsBodyNyamuk.categoryBitMask = PhysicsCategory.nyamuk
+        physicsBodyNyamuk.contactTestBitMask = PhysicsCategory.tool
+        nyamuk.physicsBody = physicsBodyNyamuk
         
-        //5. action
+        self.addChild(nyamuk)
+        
+        //set suara
+        //action
         nyamuk.run(SKAction.group([completeAction]))
     }
     
@@ -63,4 +81,14 @@ class GameScene: SKScene {
     
 }
 
-//Ini branch benaya
+extension GameScene: SKPhysicsContactDelegate{
+    func didBegin(_ contact: SKPhysicsContact) {
+        let bitMask = contact.bodyA.categoryBitMask | contact.bodyB.categoryBitMask
+        
+        if bitMask == PhysicsCategory.nyamuk | PhysicsCategory.tool{
+            print("ok")
+        }
+        
+    }
+    
+}
