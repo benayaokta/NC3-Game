@@ -28,6 +28,8 @@ class GameScene: SKScene {
         
         tool = (childNode(withName: "tool") as! SKSpriteNode)
         tool.physicsBody?.categoryBitMask = PhysicsCategory.tool
+        tool.anchorPoint = CGPoint(x: 0.5, y: 0.5)
+        print(tool.position)
         
         //spawn nyamuk
         let generateNyamuk = SKAction.run {
@@ -38,7 +40,7 @@ class GameScene: SKScene {
         let delay = SKAction.wait(forDuration: 2)
         
         //looping nyamuk
-        run(SKAction.repeatForever(SKAction.sequence([generateMany,delay])))
+        run(SKAction.repeatForever(SKAction.sequence([generateMany, delay])),withKey: "spawnNyamuk")
 
     }
     
@@ -48,34 +50,56 @@ class GameScene: SKScene {
         nyamuk.size = CGSize(width: 100, height: 100)
     
         //atur posisi
-        let xPosition = CGFloat.random(in: 400...414) //nanti diubah
-        let yPosition = CGFloat.random(in: 650...1600)
-        nyamuk.zPosition = 5
+        let xPosition = CGFloat.random(in: 300...414) //nanti diubah
+        let yPosition = CGFloat.random(in: 600...1200)
+        nyamuk.zPosition = 2
         nyamuk.position = CGPoint(x: xPosition, y: yPosition)
         
         //animasi gerak2
-        let moveNyamuk = SKAction.moveBy(x: 0, y: -700, duration: 0.7)
+        let moveNyamuk = SKAction.moveBy(x: 0, y: 200, duration: 2)
         let completeAction = SKAction.sequence([moveNyamuk, SKAction.removeFromParent()])
         
         //physics body
         let physicsBodyNyamuk = SKPhysicsBody(circleOfRadius: 50)
         physicsBodyNyamuk.categoryBitMask = PhysicsCategory.nyamuk
         physicsBodyNyamuk.contactTestBitMask = PhysicsCategory.tool
+        //buat dia terbang
+        physicsBodyNyamuk.affectedByGravity = false
         nyamuk.physicsBody = physicsBodyNyamuk
         
         self.addChild(nyamuk)
         
         //set suara
         //action
-        nyamuk.run(SKAction.group([completeAction]))
+//        nyamuk.run(SKAction.group([completeAction]))
+        nyamuk.run(completeAction)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.spawnNyamuk()
+        guard let touch = touches.first else { return }
+        let position = touch.location(in: self)
+        tool.position = position
+        print(tool.position)
+        
+//        for touch in touches{
+//            let location = touch.location(in: self){
+//                tool.position.x = location.x
+//            }
+//        }
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        //SKAction.removeFromParent()
+        tool.position = CGPoint(x: 414, y: 300)
+    }
+    
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        for touch in touches {
+            let location = touch.location(in: self)
+
+            tool.position.x = location.x
+            tool.position.y = location.y
+            print(tool.position)
+        }
     }
     
     
@@ -86,12 +110,10 @@ extension GameScene: SKPhysicsContactDelegate{
         let bitMask = contact.bodyA.categoryBitMask | contact.bodyB.categoryBitMask
         
         if bitMask == PhysicsCategory.nyamuk | PhysicsCategory.tool{
-            print("ok")
+            print("kena")
+            removeAction(forKey: "spawnNyamuk")
         }
         
     }
     
 }
-
-
-//Testing commit ke branch-benaya
