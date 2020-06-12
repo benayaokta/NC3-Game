@@ -9,7 +9,6 @@
 import SpriteKit
 import GameplayKit
 
-
 struct PhysicsCategory {
     //cek di kalkulator berapa nilainya
     static let nyamuk: UInt32 = 0b1
@@ -19,12 +18,19 @@ struct PhysicsCategory {
 class GameScene: SKScene {
     
     var tool: SKSpriteNode!
+    var nyamuk: SKSpriteNode!
     var nyamukDirection: CGFloat = 0
+    
+    //    var labelCounterNyamuk: SKLabelNode?
+    //    var counter = 0
+    //
+    //    var arrayNode: [SKNode]? = nil
     
     override func didMove(to view: SKView) {
         
         //MARK -> PENTING
         physicsWorld.contactDelegate = self
+        self.physicsBody = SKPhysicsBody(edgeLoopFrom: CGRect(x: 7, y: 540, width: 824, height: 1130))
         
         tool = (childNode(withName: "tool") as! SKSpriteNode)
         tool.physicsBody?.categoryBitMask = PhysicsCategory.tool
@@ -37,27 +43,30 @@ class GameScene: SKScene {
         }
         let generateMany = SKAction.repeat(generateNyamuk, count: 5)
         
-        let delay = SKAction.wait(forDuration: 3)
+        let delay = SKAction.wait(forDuration: 4)
         
         //looping nyamuk
         run(SKAction.repeatForever(SKAction.sequence([generateMany, delay])),withKey: "spawnNyamuk")
-
+        
     }
     
     func spawnNyamuk(){
         //buat sprite node isinya texture nyamuk
-        let nyamuk = SKSpriteNode(imageNamed: "mosquito-1")
+        nyamuk = SKSpriteNode(imageNamed: "mosquito-1")
         nyamuk.name = "nyamuk"
         nyamuk.size = CGSize(width: 100, height: 100)
-    
+        
         //atur posisi
-        let xPosition = CGFloat.random(in: 100...800) //nanti diubah
-        let yPosition = CGFloat.random(in: 600...1700)
+        let xPosition = CGFloat.random(in: 10...810)
+        let yPosition = CGFloat.random(in: 500...1120)
         nyamuk.zPosition = 2
         nyamuk.position = CGPoint(x: xPosition, y: yPosition)
         
         //animasi gerak2
-        let moveNyamuk = SKAction.moveBy(x: 0, y: 600, duration: 2)
+        let moveNyamuk = SKAction.moveBy(x: 0, y: 600, duration: 4)
+        //        if nyamuk.position.y > 1130 {
+        //            nyamuk.position.y = nyamuk.position(SKAction.moveBy(x: 0, y: -600, duration: 2)
+        //        }
         let completeAction = SKAction.sequence([moveNyamuk, SKAction.removeFromParent()])
         
         //physics body
@@ -72,8 +81,14 @@ class GameScene: SKScene {
         
         //set suara
         //action
-//        nyamuk.run(SKAction.group([completeAction]))
+        //        nyamuk.run(SKAction.group([completeAction]))
         nyamuk.run(completeAction)
+    }
+    
+    override func update(_ currentTime: TimeInterval) {
+//        if nyamuk.position.y > 1130 {
+//            nyamuk.position.y = SKAction.moveBy(x: 0, y: -400, duration: 3)
+//        }
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -90,15 +105,15 @@ class GameScene: SKScene {
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         for touch in touches {
             let location = touch.location(in: self)
-
+            
             tool.position.x = location.x
             tool.position.y = location.y
             print(tool.position)
         }
     }
-    
-    
 }
+
+
 
 extension GameScene: SKPhysicsContactDelegate{
     func didBegin(_ contact: SKPhysicsContact) {
@@ -111,13 +126,11 @@ extension GameScene: SKPhysicsContactDelegate{
             }else{
                 node = contact.bodyB.node
             }
-           
-            node?.run(SKAction.removeFromParent())
+            
+            //            arrayNode?.append(node!)
+            //            print(arrayNode?.count)
+            node!.run(SKAction.removeFromParent())
             
         }
-        
     }
-    
-    //test commit
-    
 }
