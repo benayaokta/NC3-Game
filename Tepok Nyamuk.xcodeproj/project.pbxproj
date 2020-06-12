@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F467F839249377FA002861E5 /* MainMenuScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = F467F838249377FA002861E5 /* MainMenuScene.sks */; };
+		F467F83B24937804002861E5 /* MainMenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = F467F83A24937804002861E5 /* MainMenuScene.swift */; };
 		F47E1C34248FAB8C007D85EF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47E1C33248FAB8C007D85EF /* AppDelegate.swift */; };
 		F47E1C36248FAB8C007D85EF /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = F47E1C35248FAB8C007D85EF /* GameScene.sks */; };
 		F47E1C38248FAB8C007D85EF /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = F47E1C37248FAB8C007D85EF /* Actions.sks */; };
@@ -18,6 +20,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F467F838249377FA002861E5 /* MainMenuScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MainMenuScene.sks; sourceTree = "<group>"; };
+		F467F83A24937804002861E5 /* MainMenuScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuScene.swift; sourceTree = "<group>"; };
 		F47E1C30248FAB8C007D85EF /* Tepok Nyamuk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Tepok Nyamuk.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F47E1C33248FAB8C007D85EF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F47E1C35248FAB8C007D85EF /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -63,6 +67,8 @@
 				F47E1C33248FAB8C007D85EF /* AppDelegate.swift */,
 				F47E1C35248FAB8C007D85EF /* GameScene.sks */,
 				F47E1C37248FAB8C007D85EF /* Actions.sks */,
+				F467F838249377FA002861E5 /* MainMenuScene.sks */,
+				F467F83A24937804002861E5 /* MainMenuScene.swift */,
 				F47E1C39248FAB8C007D85EF /* GameScene.swift */,
 				F47E1C3B248FAB8C007D85EF /* GameViewController.swift */,
 				F47E1C3D248FAB8C007D85EF /* Main.storyboard */,
@@ -135,6 +141,7 @@
 				F47E1C36248FAB8C007D85EF /* GameScene.sks in Resources */,
 				F47E1C41248FAB8E007D85EF /* Assets.xcassets in Resources */,
 				F47E1C44248FAB8E007D85EF /* LaunchScreen.storyboard in Resources */,
+				F467F839249377FA002861E5 /* MainMenuScene.sks in Resources */,
 				F47E1C38248FAB8C007D85EF /* Actions.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -148,6 +155,7 @@
 			files = (
 				F47E1C3A248FAB8C007D85EF /* GameScene.swift in Sources */,
 				F47E1C3C248FAB8C007D85EF /* GameViewController.swift in Sources */,
+				F467F83B24937804002861E5 /* MainMenuScene.swift in Sources */,
 				F47E1C34248FAB8C007D85EF /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
