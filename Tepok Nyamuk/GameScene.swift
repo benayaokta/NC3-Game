@@ -37,7 +37,7 @@ class GameScene: SKScene {
         }
         let generateMany = SKAction.repeat(generateNyamuk, count: 5)
         
-        let delay = SKAction.wait(forDuration: 2)
+        let delay = SKAction.wait(forDuration: 3)
         
         //looping nyamuk
         run(SKAction.repeatForever(SKAction.sequence([generateMany, delay])),withKey: "spawnNyamuk")
@@ -47,16 +47,17 @@ class GameScene: SKScene {
     func spawnNyamuk(){
         //buat sprite node isinya texture nyamuk
         let nyamuk = SKSpriteNode(imageNamed: "mosquito-1")
+        nyamuk.name = "nyamuk"
         nyamuk.size = CGSize(width: 100, height: 100)
     
         //atur posisi
-        let xPosition = CGFloat.random(in: 300...414) //nanti diubah
-        let yPosition = CGFloat.random(in: 600...1200)
+        let xPosition = CGFloat.random(in: 100...800) //nanti diubah
+        let yPosition = CGFloat.random(in: 600...1700)
         nyamuk.zPosition = 2
         nyamuk.position = CGPoint(x: xPosition, y: yPosition)
         
         //animasi gerak2
-        let moveNyamuk = SKAction.moveBy(x: 0, y: 200, duration: 2)
+        let moveNyamuk = SKAction.moveBy(x: 0, y: 600, duration: 2)
         let completeAction = SKAction.sequence([moveNyamuk, SKAction.removeFromParent()])
         
         //physics body
@@ -80,12 +81,6 @@ class GameScene: SKScene {
         let position = touch.location(in: self)
         tool.position = position
         print(tool.position)
-        
-//        for touch in touches{
-//            let location = touch.location(in: self){
-//                tool.position.x = location.x
-//            }
-//        }
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -110,8 +105,15 @@ extension GameScene: SKPhysicsContactDelegate{
         let bitMask = contact.bodyA.categoryBitMask | contact.bodyB.categoryBitMask
         
         if bitMask == PhysicsCategory.nyamuk | PhysicsCategory.tool{
-            print("kena")
-            removeAction(forKey: "spawnNyamuk")
+            var node: SKNode? = nil
+            if contact.bodyA.node?.name == "nyamuk" {
+                node = contact.bodyA.node
+            }else{
+                node = contact.bodyB.node
+            }
+           
+            node?.run(SKAction.removeFromParent())
+            
         }
         
     }
