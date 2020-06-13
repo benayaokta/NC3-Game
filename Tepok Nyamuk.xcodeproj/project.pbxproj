@@ -7,11 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F422109E249540D3001346D6 /* pop-sound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F422109B249540D3001346D6 /* pop-sound.mp3 */; };
+		F42210A0249540D3001346D6 /* Local Forecast - Elevator.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F422109D249540D3001346D6 /* Local Forecast - Elevator.mp3 */; };
+		F42210A324954115001346D6 /* Jaunty Gumption.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F42210A224954115001346D6 /* Jaunty Gumption.mp3 */; };
 		F467F839249377FA002861E5 /* MainMenuScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = F467F838249377FA002861E5 /* MainMenuScene.sks */; };
 		F467F83B24937804002861E5 /* MainMenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = F467F83A24937804002861E5 /* MainMenuScene.swift */; };
 		F47E1C34248FAB8C007D85EF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47E1C33248FAB8C007D85EF /* AppDelegate.swift */; };
 		F47E1C36248FAB8C007D85EF /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = F47E1C35248FAB8C007D85EF /* GameScene.sks */; };
-		F47E1C38248FAB8C007D85EF /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = F47E1C37248FAB8C007D85EF /* Actions.sks */; };
 		F47E1C3A248FAB8C007D85EF /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47E1C39248FAB8C007D85EF /* GameScene.swift */; };
 		F47E1C3C248FAB8C007D85EF /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47E1C3B248FAB8C007D85EF /* GameViewController.swift */; };
 		F47E1C3F248FAB8C007D85EF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F47E1C3D248FAB8C007D85EF /* Main.storyboard */; };
@@ -20,12 +22,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F422109B249540D3001346D6 /* pop-sound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "pop-sound.mp3"; sourceTree = "<group>"; };
+		F422109D249540D3001346D6 /* Local Forecast - Elevator.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Local Forecast - Elevator.mp3"; sourceTree = "<group>"; };
+		F42210A224954115001346D6 /* Jaunty Gumption.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Jaunty Gumption.mp3"; sourceTree = "<group>"; };
 		F467F838249377FA002861E5 /* MainMenuScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MainMenuScene.sks; sourceTree = "<group>"; };
 		F467F83A24937804002861E5 /* MainMenuScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuScene.swift; sourceTree = "<group>"; };
 		F47E1C30248FAB8C007D85EF /* Tepok Nyamuk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Tepok Nyamuk.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F47E1C33248FAB8C007D85EF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F47E1C35248FAB8C007D85EF /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
-		F47E1C37248FAB8C007D85EF /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
 		F47E1C39248FAB8C007D85EF /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		F47E1C3B248FAB8C007D85EF /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		F47E1C3E248FAB8C007D85EF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -45,6 +49,35 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F422109924954072001346D6 /* Swift File */ = {
+			isa = PBXGroup;
+			children = (
+				F467F83A24937804002861E5 /* MainMenuScene.swift */,
+				F47E1C39248FAB8C007D85EF /* GameScene.swift */,
+				F47E1C3B248FAB8C007D85EF /* GameViewController.swift */,
+			);
+			path = "Swift File";
+			sourceTree = "<group>";
+		};
+		F422109A24954094001346D6 /* Scene */ = {
+			isa = PBXGroup;
+			children = (
+				F47E1C35248FAB8C007D85EF /* GameScene.sks */,
+				F467F838249377FA002861E5 /* MainMenuScene.sks */,
+			);
+			path = Scene;
+			sourceTree = "<group>";
+		};
+		F42210A1249540D8001346D6 /* Sound */ = {
+			isa = PBXGroup;
+			children = (
+				F422109D249540D3001346D6 /* Local Forecast - Elevator.mp3 */,
+				F42210A224954115001346D6 /* Jaunty Gumption.mp3 */,
+				F422109B249540D3001346D6 /* pop-sound.mp3 */,
+			);
+			path = Sound;
+			sourceTree = "<group>";
+		};
 		F47E1C27248FAB8C007D85EF = {
 			isa = PBXGroup;
 			children = (
@@ -65,12 +98,9 @@
 			isa = PBXGroup;
 			children = (
 				F47E1C33248FAB8C007D85EF /* AppDelegate.swift */,
-				F47E1C35248FAB8C007D85EF /* GameScene.sks */,
-				F47E1C37248FAB8C007D85EF /* Actions.sks */,
-				F467F838249377FA002861E5 /* MainMenuScene.sks */,
-				F467F83A24937804002861E5 /* MainMenuScene.swift */,
-				F47E1C39248FAB8C007D85EF /* GameScene.swift */,
-				F47E1C3B248FAB8C007D85EF /* GameViewController.swift */,
+				F42210A1249540D8001346D6 /* Sound */,
+				F422109A24954094001346D6 /* Scene */,
+				F422109924954072001346D6 /* Swift File */,
 				F47E1C3D248FAB8C007D85EF /* Main.storyboard */,
 				F47E1C40248FAB8E007D85EF /* Assets.xcassets */,
 				F47E1C42248FAB8E007D85EF /* LaunchScreen.storyboard */,
@@ -140,9 +170,11 @@
 				F47E1C3F248FAB8C007D85EF /* Main.storyboard in Resources */,
 				F47E1C36248FAB8C007D85EF /* GameScene.sks in Resources */,
 				F47E1C41248FAB8E007D85EF /* Assets.xcassets in Resources */,
+				F42210A0249540D3001346D6 /* Local Forecast - Elevator.mp3 in Resources */,
 				F47E1C44248FAB8E007D85EF /* LaunchScreen.storyboard in Resources */,
+				F422109E249540D3001346D6 /* pop-sound.mp3 in Resources */,
 				F467F839249377FA002861E5 /* MainMenuScene.sks in Resources */,
-				F47E1C38248FAB8C007D85EF /* Actions.sks in Resources */,
+				F42210A324954115001346D6 /* Jaunty Gumption.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
