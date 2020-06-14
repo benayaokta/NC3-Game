@@ -21,18 +21,21 @@ class GameScene: SKScene {
     var nyamuk: SKSpriteNode!
     var changeTool: SKSpriteNode!
     var respawn: SKAction!
+    var fly: SKAction!
     var labelCounterNyamuk: SKLabelNode!{
         didSet{
-            labelCounterNyamuk.text = "\(counter)"
+            labelCounterNyamuk.text = "\(counter) Hit"
         }
     }
     var counter = 0
     
     override func didMove(to view: SKView) {
         
+        setupFlyAction()
+        
         //MARK -> PENTING
         physicsWorld.contactDelegate = self
-        self.physicsBody = SKPhysicsBody(edgeLoopFrom: CGRect(x: 7, y: 540, width: 824, height: 1130))
+        self.physicsBody = SKPhysicsBody(edgeLoopFrom: CGRect(x: 7, y: 540, width: 800, height: 1120))
         
         tool = (childNode(withName: "tool") as! SKSpriteNode)
         tool.physicsBody?.categoryBitMask = PhysicsCategory.tool
@@ -40,7 +43,6 @@ class GameScene: SKScene {
         print(tool.position)
         
         labelCounterNyamuk = self.childNode(withName: "counter") as? SKLabelNode
-        
         changeTool = childNode(withName: "changeTool") as? SKSpriteNode
         
         //spawn nyamuk
@@ -48,23 +50,18 @@ class GameScene: SKScene {
             self.spawnNyamuk()
         }
         let generateMany = SKAction.repeat(generateNyamuk, count: 5)
-        
         let delay = SKAction.wait(forDuration: 3)
         
         //looping nyamuk
-//        let respawn = run(SKAction.sequence([generateMany]),withKey: "spawnNyamuk")
         respawn = SKAction.sequence([delay, generateMany])
-        
-//        run(SKAction.repeatForever(SKAction.sequence([generateMany, delay])),withKey: "spawnNyamuk")
         run(respawn, withKey: "respawnNyamuk")
-        
     }
     
     func spawnNyamuk(){
         //buat sprite node isinya texture nyamuk
-        nyamuk = SKSpriteNode(imageNamed: "mosquito-1")
+        nyamuk = SKSpriteNode(imageNamed: "nyamuk-gemuk-1")
         nyamuk.name = "nyamuk"
-        nyamuk.size = CGSize(width: 100, height: 100)
+        nyamuk.size = CGSize(width: 165, height: 90)
         
         //atur posisi
         let randomXDistribution = GKRandomDistribution(lowestValue: 10, highestValue: 810)
@@ -76,12 +73,10 @@ class GameScene: SKScene {
         nyamuk.position = CGPoint(x: xPosition, y: yPosition)
         
         //animasi gerak2
-        let moveNyamuk = SKAction.moveBy(x: 500, y: 200, duration: 1)
-        //        if nyamuk.position.y > 1130 {
-        //            nyamuk.position.y = nyamuk.position(SKAction.moveBy(x: 0, y: -600, duration: 2)
-        //        }
-        //        let completeAction = SKAction.sequence([moveNyamuk, SKAction.removeFromParent()])
-        let completeMovement = SKAction.sequence([moveNyamuk, moveNyamuk.reversed()])
+        let moveXNyamuk = SKAction.moveBy(x: CGFloat.random(in: 0...500), y: 0, duration: Double.random(in: 1...3))
+        let moveYNyamuk = SKAction.moveBy(x: 0, y: CGFloat.random(in: 200...700), duration: Double.random(in: 1...5))
+        let completeXY = SKAction.sequence([moveXNyamuk, moveYNyamuk])
+        let completeMovement = SKAction.sequence([completeXY, completeXY.reversed()])
         let completeAction = SKAction.repeatForever(completeMovement)
         
         //physics body
@@ -93,16 +88,16 @@ class GameScene: SKScene {
         nyamuk.physicsBody = physicsBodyNyamuk
         
         self.addChild(nyamuk)
-
-        //set suara
-        //action
-        //        nyamuk.run(SKAction.group([completeAction]))
         nyamuk.run(completeAction)
+        nyamuk.run(fly, withKey: "terbang")
     }
     
     override func update(_ currentTime: TimeInterval) {
-        labelCounterNyamuk.text = "\(counter)"
-        
+        if counter < 2{
+        labelCounterNyamuk.text = "\(counter) Hit"
+        }else{
+        labelCounterNyamuk.text = "\(counter) Hits"
+        }
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -111,9 +106,7 @@ class GameScene: SKScene {
         if let node = self.nodes(at: touch.location(in: self)).first as? SKSpriteNode{
             switch node {
             case tool:
-                print("ok")
-            case changeTool:
-                print("changed")
+                zappedAction()
             default:
                 let location = touch.location(in: self)
                 tool.position.x = location.x
@@ -127,6 +120,27 @@ class GameScene: SKScene {
         tool.position = CGPoint(x: 414, y: 300)
     }
     
+    func zappedAction(){
+        let sound = SKAudioNode(fileNamed: "zapped.mp3")
+        sound.autoplayLooped = false
+        addChild(sound)
+        sound.run(SKAction.play(), withKey: "zappedEffect")
+    }
+    
+    func setupFlyAction(){
+        var texture = [SKTexture]()
+        for i in 1...5{
+            texture.append(SKTexture(imageNamed: "nyamuk-gemuk-"+"\(i)"))
+        }
+        fly = SKAction.repeatForever(SKAction.animate(with: texture, timePerFrame: 0.05))
+    }
+    
+    func soundEffect(){
+        let sound = SKAudioNode(fileNamed: "electrocuted.mp3")
+        sound.autoplayLooped = false
+        addChild(sound)
+        sound.run(SKAction.play(), withKey: "soundEffect")
+    }
 }
 
 extension GameScene: SKPhysicsContactDelegate{
@@ -143,8 +157,9 @@ extension GameScene: SKPhysicsContactDelegate{
                 node = contact.bodyB.node
             }
             node!.physicsBody?.categoryBitMask = 0
+            soundEffect()
             node!.run(SKAction.removeFromParent())
-
+            
             self.run(respawn, withKey: "respawnNyamuk")
             
         }

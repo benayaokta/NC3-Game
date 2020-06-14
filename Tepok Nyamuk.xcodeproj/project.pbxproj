@@ -7,9 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F422109E249540D3001346D6 /* pop-sound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F422109B249540D3001346D6 /* pop-sound.mp3 */; };
-		F42210A0249540D3001346D6 /* Local Forecast - Elevator.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F422109D249540D3001346D6 /* Local Forecast - Elevator.mp3 */; };
-		F42210A324954115001346D6 /* Jaunty Gumption.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F42210A224954115001346D6 /* Jaunty Gumption.mp3 */; };
+		F42210A0249540D3001346D6 /* creditMusic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F422109D249540D3001346D6 /* creditMusic.mp3 */; };
+		F42210A324954115001346D6 /* bgMusic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F42210A224954115001346D6 /* bgMusic.mp3 */; };
 		F467F839249377FA002861E5 /* MainMenuScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = F467F838249377FA002861E5 /* MainMenuScene.sks */; };
 		F467F83B24937804002861E5 /* MainMenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = F467F83A24937804002861E5 /* MainMenuScene.swift */; };
 		F47E1C34248FAB8C007D85EF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47E1C33248FAB8C007D85EF /* AppDelegate.swift */; };
@@ -19,12 +18,14 @@
 		F47E1C3F248FAB8C007D85EF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F47E1C3D248FAB8C007D85EF /* Main.storyboard */; };
 		F47E1C41248FAB8E007D85EF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F47E1C40248FAB8E007D85EF /* Assets.xcassets */; };
 		F47E1C44248FAB8E007D85EF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F47E1C42248FAB8E007D85EF /* LaunchScreen.storyboard */; };
+		F4BD5EE7249684A700CB5463 /* Solid Cartoonlings.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F4BD5EE6249684A700CB5463 /* Solid Cartoonlings.ttf */; };
+		F4BD5EEB2496899900CB5463 /* electrocuted.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F4BD5EE92496899900CB5463 /* electrocuted.mp3 */; };
+		F4BD5EEC2496899900CB5463 /* zapped.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F4BD5EEA2496899900CB5463 /* zapped.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		F422109B249540D3001346D6 /* pop-sound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "pop-sound.mp3"; sourceTree = "<group>"; };
-		F422109D249540D3001346D6 /* Local Forecast - Elevator.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Local Forecast - Elevator.mp3"; sourceTree = "<group>"; };
-		F42210A224954115001346D6 /* Jaunty Gumption.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Jaunty Gumption.mp3"; sourceTree = "<group>"; };
+		F422109D249540D3001346D6 /* creditMusic.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = creditMusic.mp3; sourceTree = "<group>"; };
+		F42210A224954115001346D6 /* bgMusic.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bgMusic.mp3; sourceTree = "<group>"; };
 		F467F838249377FA002861E5 /* MainMenuScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MainMenuScene.sks; sourceTree = "<group>"; };
 		F467F83A24937804002861E5 /* MainMenuScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuScene.swift; sourceTree = "<group>"; };
 		F47E1C30248FAB8C007D85EF /* Tepok Nyamuk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Tepok Nyamuk.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -36,6 +37,9 @@
 		F47E1C40248FAB8E007D85EF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F47E1C43248FAB8E007D85EF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F47E1C45248FAB8E007D85EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F4BD5EE6249684A700CB5463 /* Solid Cartoonlings.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Solid Cartoonlings.ttf"; sourceTree = "<group>"; };
+		F4BD5EE92496899900CB5463 /* electrocuted.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = electrocuted.mp3; sourceTree = "<group>"; };
+		F4BD5EEA2496899900CB5463 /* zapped.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = zapped.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,9 +75,10 @@
 		F42210A1249540D8001346D6 /* Sound */ = {
 			isa = PBXGroup;
 			children = (
-				F422109D249540D3001346D6 /* Local Forecast - Elevator.mp3 */,
-				F42210A224954115001346D6 /* Jaunty Gumption.mp3 */,
-				F422109B249540D3001346D6 /* pop-sound.mp3 */,
+				F422109D249540D3001346D6 /* creditMusic.mp3 */,
+				F42210A224954115001346D6 /* bgMusic.mp3 */,
+				F4BD5EE92496899900CB5463 /* electrocuted.mp3 */,
+				F4BD5EEA2496899900CB5463 /* zapped.mp3 */,
 			);
 			path = Sound;
 			sourceTree = "<group>";
@@ -98,6 +103,7 @@
 			isa = PBXGroup;
 			children = (
 				F47E1C33248FAB8C007D85EF /* AppDelegate.swift */,
+				F4BD5EE8249684B300CB5463 /* Typeface */,
 				F42210A1249540D8001346D6 /* Sound */,
 				F422109A24954094001346D6 /* Scene */,
 				F422109924954072001346D6 /* Swift File */,
@@ -107,6 +113,14 @@
 				F47E1C45248FAB8E007D85EF /* Info.plist */,
 			);
 			path = "Tepok Nyamuk";
+			sourceTree = "<group>";
+		};
+		F4BD5EE8249684B300CB5463 /* Typeface */ = {
+			isa = PBXGroup;
+			children = (
+				F4BD5EE6249684A700CB5463 /* Solid Cartoonlings.ttf */,
+			);
+			path = Typeface;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -170,11 +184,13 @@
 				F47E1C3F248FAB8C007D85EF /* Main.storyboard in Resources */,
 				F47E1C36248FAB8C007D85EF /* GameScene.sks in Resources */,
 				F47E1C41248FAB8E007D85EF /* Assets.xcassets in Resources */,
-				F42210A0249540D3001346D6 /* Local Forecast - Elevator.mp3 in Resources */,
+				F4BD5EEC2496899900CB5463 /* zapped.mp3 in Resources */,
+				F42210A0249540D3001346D6 /* creditMusic.mp3 in Resources */,
 				F47E1C44248FAB8E007D85EF /* LaunchScreen.storyboard in Resources */,
-				F422109E249540D3001346D6 /* pop-sound.mp3 in Resources */,
+				F4BD5EE7249684A700CB5463 /* Solid Cartoonlings.ttf in Resources */,
 				F467F839249377FA002861E5 /* MainMenuScene.sks in Resources */,
-				F42210A324954115001346D6 /* Jaunty Gumption.mp3 in Resources */,
+				F4BD5EEB2496899900CB5463 /* electrocuted.mp3 in Resources */,
+				F42210A324954115001346D6 /* bgMusic.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -335,6 +351,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 26SCPNUJUC;
 				INFOPLIST_FILE = "Tepok Nyamuk/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -353,6 +370,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 26SCPNUJUC;
 				INFOPLIST_FILE = "Tepok Nyamuk/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

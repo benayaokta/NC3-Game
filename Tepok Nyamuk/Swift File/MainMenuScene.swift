@@ -6,12 +6,17 @@
 //  Copyright © 2020 -. All rights reserved.
 //
 
-import Foundation
 import SpriteKit
 
 class MainMenuScene: SKScene {
+    
     override func didMove(to view: SKView) {
-//        let bgMusic = SKAudioNode(fileNamed: <#T##String#>)
+        
+        let bgMusic = SKAudioNode(fileNamed: "bgMusic.mp3")
+        addChild(bgMusic)
+        let volume = SKAction.changeVolume(by: 0.1, duration: 0)
+        bgMusic.run(SKAction.group([volume,SKAction.play()]))
+        
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -20,10 +25,10 @@ class MainMenuScene: SKScene {
         let startNode = childNode(withName: "startButton") as! SKSpriteNode
         if startNode.frame.contains(touch.location(in: self)){
             if let scene = SKScene(fileNamed: "GameScene"){
+                let fadeOut = SKTransition.fade(withDuration: 3)
                 scene.scaleMode = scaleMode
-                view?.presentScene(scene)
+                view?.presentScene(scene, transition: fadeOut)
             }
         }
-        
     }
 }
