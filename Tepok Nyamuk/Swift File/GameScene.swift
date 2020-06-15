@@ -146,7 +146,6 @@ class GameScene: SKScene {
                 let location = touch.location(in: self)
                 tool.position.x = location.x
                 tool.position.y = location.y
-                print(tool.position)
             }
         }
     }
