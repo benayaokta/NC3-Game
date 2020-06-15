@@ -25,7 +25,7 @@ class MainMenuScene: SKScene {
         let startNode = childNode(withName: "startButton") as! SKSpriteNode
         if startNode.frame.contains(touch.location(in: self)){
             if let scene = SKScene(fileNamed: "GameScene"){
-                let fadeOut = SKTransition.fade(withDuration: 2)
+                let fadeOut = SKTransition.fade(withDuration: 1)
                 scene.scaleMode = scaleMode
                 view?.presentScene(scene, transition: fadeOut)
             }

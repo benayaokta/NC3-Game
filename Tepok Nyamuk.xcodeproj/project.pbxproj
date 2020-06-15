@@ -10,6 +10,7 @@
 		F42210A324954115001346D6 /* bgMusic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F42210A224954115001346D6 /* bgMusic.mp3 */; };
 		F467F839249377FA002861E5 /* MainMenuScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = F467F838249377FA002861E5 /* MainMenuScene.sks */; };
 		F467F83B24937804002861E5 /* MainMenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = F467F83A24937804002861E5 /* MainMenuScene.swift */; };
+		F47BD85024978FA1001F067F /* squashed.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F47BD84F24978FA1001F067F /* squashed.mp3 */; };
 		F47E1C34248FAB8C007D85EF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47E1C33248FAB8C007D85EF /* AppDelegate.swift */; };
 		F47E1C36248FAB8C007D85EF /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = F47E1C35248FAB8C007D85EF /* GameScene.sks */; };
 		F47E1C3A248FAB8C007D85EF /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47E1C39248FAB8C007D85EF /* GameScene.swift */; };
@@ -26,6 +27,7 @@
 		F42210A224954115001346D6 /* bgMusic.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bgMusic.mp3; sourceTree = "<group>"; };
 		F467F838249377FA002861E5 /* MainMenuScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MainMenuScene.sks; sourceTree = "<group>"; };
 		F467F83A24937804002861E5 /* MainMenuScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuScene.swift; sourceTree = "<group>"; };
+		F47BD84F24978FA1001F067F /* squashed.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = squashed.mp3; sourceTree = "<group>"; };
 		F47E1C30248FAB8C007D85EF /* Tepok Nyamuk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Tepok Nyamuk.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F47E1C33248FAB8C007D85EF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F47E1C35248FAB8C007D85EF /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -74,6 +76,7 @@
 			isa = PBXGroup;
 			children = (
 				F42210A224954115001346D6 /* bgMusic.mp3 */,
+				F47BD84F24978FA1001F067F /* squashed.mp3 */,
 				F4BD5EE92496899900CB5463 /* electrocuted.mp3 */,
 				F4BD5EEA2496899900CB5463 /* zapped.mp3 */,
 			);
@@ -182,6 +185,7 @@
 				F47E1C36248FAB8C007D85EF /* GameScene.sks in Resources */,
 				F47E1C41248FAB8E007D85EF /* Assets.xcassets in Resources */,
 				F4BD5EEC2496899900CB5463 /* zapped.mp3 in Resources */,
+				F47BD85024978FA1001F067F /* squashed.mp3 in Resources */,
 				F47E1C44248FAB8E007D85EF /* LaunchScreen.storyboard in Resources */,
 				F4BD5EE7249684A700CB5463 /* Solid Cartoonlings.ttf in Resources */,
 				F467F839249377FA002861E5 /* MainMenuScene.sks in Resources */,
