@@ -14,7 +14,7 @@ class MainMenuScene: SKScene {
         
         let bgMusic = SKAudioNode(fileNamed: "bgMusic.mp3")
         addChild(bgMusic)
-        let volume = SKAction.changeVolume(by: 0.1, duration: 0)
+        let volume = SKAction.changeVolume(by: 0.05, duration: 0)
         bgMusic.run(SKAction.group([volume,SKAction.play()]))
         
     }
@@ -25,7 +25,7 @@ class MainMenuScene: SKScene {
         let startNode = childNode(withName: "startButton") as! SKSpriteNode
         if startNode.frame.contains(touch.location(in: self)){
             if let scene = SKScene(fileNamed: "GameScene"){
-                let fadeOut = SKTransition.fade(withDuration: 3)
+                let fadeOut = SKTransition.fade(withDuration: 2)
                 scene.scaleMode = scaleMode
                 view?.presentScene(scene, transition: fadeOut)
             }

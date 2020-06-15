@@ -149,7 +149,6 @@ extension GameScene: SKPhysicsContactDelegate{
         
         if bitMask == PhysicsCategory.nyamuk | PhysicsCategory.tool{
             counter += 1
-            print(counter)
             var node: SKNode? = nil
             if contact.bodyA.node?.name == "nyamuk" {
                 node = contact.bodyA.node
@@ -160,7 +159,10 @@ extension GameScene: SKPhysicsContactDelegate{
             soundEffect()
             node!.run(SKAction.removeFromParent())
             
-            self.run(respawn, withKey: "respawnNyamuk")
+            if counter % 5 == 0{
+                //node nya masih nambah terus, ga berkurang
+                self.run(respawn, withKey: "respawnNyamuk")
+            }
             
         }
     }
